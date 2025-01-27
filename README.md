@@ -1,5 +1,5 @@
-# **Sistemas de Información II**  
-## Sistema de Evaluación Basado en Proyectos
+# **Sistema de Evaluación Basado en Proyectos**  
+## Grupo 9
 
 ### **Herramientas Utilizadas**
 - **Lenguajes de Programación**: PHP, JavaScript, HTML, CSS  
@@ -23,7 +23,11 @@
 
 ---
 
-### **Estructura de Datos y Formularios**
+### **Modelo de negocios y Estructura de Datos**
+
+### **Modelo**
+El objetivo es facilitar a los docentes-tutores el seguimiento, evaluación semanal y final de
+los equipos, así como promover una evaluación justa y sistemática.
 
 #### **Grupo**
 - **id**: Identificador único del grupo  
