@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
             padding: 0;
             background-color: white;
         }
-
+        
         header {
             display: flex;
             justify-content: space-between;
@@ -21,13 +22,13 @@
             color: white;
             position: relative;
         }
-
+        
         .menu {
             cursor: pointer;
             font-weight: bold;
             position: relative;
         }
-
+        
         .dropdown {
             display: none;
             position: absolute;
@@ -39,32 +40,32 @@
             border-radius: 4px;
             z-index: 100;
         }
-
+        
         .user-icon {
             position: relative;
             cursor: pointer;
         }
-
+        
         .user-icon .dropdown {
             right: 0;
             left: auto;
         }
-
+        
         .dropdown.active {
             display: block;
         }
-
+        
         .dropdown a {
             display: block;
             padding: 5px 10px;
             text-decoration: none;
             color: black;
         }
-
+        
         .dropdown a:hover {
             background-color: #f0f0f0;
         }
-
+        
         .content {
             max-width: 800px;
             margin: 20px auto;
@@ -73,30 +74,30 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
+        
         .content h1 {
             font-size: 24px;
             margin-bottom: 20px;
         }
-
+        
         .content .description {
             margin-bottom: 20px;
         }
-
+        
         .form {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 10px;
         }
-
+        
         .form input {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
             width: 200px;
         }
-
+        
         .form button {
             background-color: black;
             color: white;
@@ -106,13 +107,13 @@
             cursor: pointer;
             font-weight: bold;
         }
-
+        
         .form button:hover {
             background-color: #333;
         }
-
     </style>
 </head>
+
 <body>
     <header>
         <div class="menu">&#9776; WEB TIS</div>
@@ -162,4 +163,5 @@
         });
     </script>
 </body>
+
 </html>
