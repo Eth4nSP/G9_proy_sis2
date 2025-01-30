@@ -16,3 +16,8 @@ Route::get('/inscribir', function () {
     return view('listaGrupos');
 });
 
+Route::get('/matricularse', function () {
+    return view('matricularse');
+});
+
+

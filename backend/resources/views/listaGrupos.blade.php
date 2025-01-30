@@ -166,7 +166,7 @@
     <main>
         <div class="docente-list">
             <h2>SELECCIONAR DOCENTE PARA MATRICULACIÓN</h2>
-            <button>BLANCO COCA LETICIA</button>
+            <a href="{{url('/matricularse')}}"><button>BLANCO COCA LETICIA</button></a>
             <button>FLORES VILLARROEL CORINA</button>
             <button>GRIEGO VAZQUES ESTEBAN</button>
             <button>BLANCO COCA LETICIA</button>
