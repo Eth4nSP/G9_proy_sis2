@@ -170,7 +170,7 @@
     <div class="container">
         <h1>Lista De Grupos</h1>
 	<ol>Lista grupos</ol>
-        <a href="/inscribir" class="button">Inscríbete a un grupo</a>
+        <a href="/listaGrupos" class="button">Inscríbete a un grupo</a>
 
         <div class="groups">
             <h2>Grupos pasados</h2>

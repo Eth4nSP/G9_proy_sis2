@@ -141,7 +141,7 @@
         <form class="form">
             <label for="codigo">Código de acceso:</label>
             <input type="text" id="codigo" placeholder="CÓDIGO">
-            <button type="button">MATRICULARSE</button>
+            <a href="main_est"><button type="button">MATRICULARSE</button></a>
         </form>
     </div>
     <script>
