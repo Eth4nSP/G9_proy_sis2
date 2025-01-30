@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Registro;
 
 /*Route::get('/', function () {
     return view('welcome');
@@ -39,6 +40,11 @@ Route::get('/docente_grupos', function () {
 Route::get('/crear_grupos', function () {
     return view('crear_grupos');
 });
+
+
+Route::post('/crearCuentaEstudiante', [Registro::class, 'crearEstudiante'])->middleware(VerifyCsrfToken::class);
+Route::post('/crearCuentaDocente', [Registro::class, 'crearDocente']);
+
 
 
 

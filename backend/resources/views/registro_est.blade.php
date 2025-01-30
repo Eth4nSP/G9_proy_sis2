@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Estudiante</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}"> <!-- 🔹 Agregado aquí -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -71,10 +72,58 @@
             text-decoration: none;
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const csrfMeta = document.querySelector('meta[name="csrf-token"]');
+            if (!csrfMeta) {
+                console.error("CSRF token no encontrado en el meta tag.");
+                return;
+            }
+
+            const form = document.querySelector("form");
+
+            form.addEventListener("submit", async function(event) {
+                event.preventDefault();
+
+                const formData = {
+                    nombreCuenta: form.elements[4].value,
+                    nombreEstudiante: form.elements[0].value,
+                    primerApellido: form.elements[1].value,
+                    segundoApellido: form.elements[2].value,
+                    email: form.elements[3].value,
+                    contrasena: form.elements[5].value,
+                    //contrasenaRepetida: form.elements[6]?.value || "" // Evita error si no hay campo 6
+                };
+
+                try {
+                    const response = await fetch("/crearCuentaEstudiante", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "X-CSRF-TOKEN": csrfMeta.getAttribute('content')
+                        },
+                        body: JSON.stringify(formData)
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        alert("Registro exitoso");
+                        window.location.href = "/inscribirGrupo";
+                    } else {
+                        alert(data.error || "Error en el registro");
+                    }
+                } catch (error) {
+                    console.error("Error en la petición:", error);
+                    alert("Hubo un problema al procesar la solicitud.");
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <div>
-    <a href="/"><button type="cancel" class="btn2">X</button>  </a>
+        <a href="/"><button type="cancel" class="btn2">X</button></a>
     </div>
     <div class="container">
         <h2>REGISTRO ESTUDIANTE</h2>
@@ -87,7 +136,6 @@
             <input type="email" placeholder="Correo Electrónico" required>
             <input type="text" placeholder="Nombre de la Cuenta" required>
             <input type="password" placeholder="Contraseña" required>
-            <input type="password" placeholder="Repetir Contraseña" required>
             <button type="submit" class="btn">REGISTRARSE</button>
         </form>
         <div class="footer">
