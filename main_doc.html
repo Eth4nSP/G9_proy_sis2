@@ -1,40 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>***** de Grupos</title>
+    <title>WEB TIS</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             background-color: #f9f9f9;
         }
 
         header {
-            background-color: #3366cc;
+            background-color: #3367d6;
             color: white;
-            padding: 10px 20px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
             position: relative;
+        }
+        .logo-container, .user-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .Logo{
+            color: white;
+            display: flex;
+            position: relative;
+            left: -585px;
+            top: 1px;
+            text-decoration: none;
+            font-weight:550 ;
+        }
+
+        .menu-container, .user-container {
+            position: relative;
+            display: inline-block;
         }
 
         .menu, .user-icon {
             font-size: 18px;
             cursor: pointer;
+            padding: 10px;
+            position: relative;
         }
 
         .dropdown {
             position: absolute;
+            top: 40px;
             background-color: white;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             display: none;
             width: 200px;
             z-index: 1000;
+            text-align: left;
         }
 
         .dropdown.active {
@@ -58,90 +82,43 @@
             background-color: #f2f2f2;
         }
 
-        .menu-container {
-            position: relative;
-        }
-
-        .user-container {
-            position: relative;
-        }
-
         #menu-dropdown {
-            top: 40px;
             left: 0;
         }
 
         #user-dropdown {
-            top: 40px;
             right: 0;
         }
-
-        .main {
+        .container {
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 80vh;
+        }
+
+        .card {
+            background: white;
             padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            width: 300px;
+            text-align: center;
         }
 
-        .content {
-            max-width: 900px;
-            width: 100%;
-        }
-
-        .create-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .create-group button {
+        .card button {
             background-color: #003399;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 10px 15px;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
+            margin: 5px;
         }
 
-        .create-group button:hover {
+        .card button:hover {
             background-color: #002080;
-        }
-
-        .group-list {
-            display: block;
-            justify-content: flex-start;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .group-info {
-            flex-grow: 1;
-        }
-
-        .conteni {
-            color: #f44336;
-            margin-top: 5px;
-        }
-
-        .subtit {
-            color: black;
-        }
-
-        img {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            border-radius: 8px;
-            display: block;
-            margin-left: auto;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            color: #555;
         }
     </style>
     <script>
@@ -175,9 +152,9 @@
     </script>
 </head>
 <body>
-    <header>
+    <header>       
         <div class="menu-container">
-            <div class="menu">&#9776; WEB TIS</div>
+            <div class="menu">&#9776;</div>            
             <div id="menu-dropdown" class="dropdown">
                 <a href="#">Visualizar Planificaciones</a>
                 <a href="#">Lista de tareas Semanal</a>
@@ -185,32 +162,34 @@
                 <a href="#">Calificaciones</a>
             </div>
         </div>
+        <div class="logo-container">
+            <a class="Logo" href="main_doc.html"> WEB GEST</a>
+        </div>
         <div class="user-container">
             <div class="user-icon">&#128100;</div>
             <div id="user-dropdown" class="dropdown">
                 <a href="#">Profile</a>
-                <a href="#">Cerrar sesión</a>
+                <a href="login.html">Cerrar sesión</a>
             </div>
         </div>
     </header>
-
-    <main class="main">
-        <div class="content">
-            <div class="create-group">
-                <button>Crear Grupo +</button>
-            </div>
-            <div class="group-list">
-                <div class="group-info">
-                    <h3 class="subtit">Grupos en curso</h3>
-                    <p class="conteni">No hay grupos en curso.</p>
-                </div>
-                <img src="image.png" alt="Lista de grupos">
-            </div>
-            <div>
-                <h3 class="subtit">Grupos pasados</h3>
-                <p class="conteni">No hay grupos pasados.</p>
-            </div>
+    
+    <div class="container">
+        <div class="card">
+            <h3>Grupo Empresa</h3>
+            <p>Fecha límite de entrega: 2024-12-12</p>
+            <button onclick="window.location='crear_grupos.html'">Registrar Grupo o Empresa</button>
         </div>
-    </main>
+        <div class="card">
+            <h3>Evaluación</h3>
+            <button>Realizar Evaluación</button>
+            <button disabled>Visualizar Evaluaciones</button>
+        </div>
+        <div class="card">
+            <h3>Lista y Nota</h3>
+            <button>Lista de Estudiantes</button>
+            <button onclick="window.location='docente_grupos.html'">Lista de Grupo de Empresas</button>
+        </div>
+    </div>
 </body>
 </html>
