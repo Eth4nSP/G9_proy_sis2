@@ -42,7 +42,7 @@ Route::get('/crear_grupos', function () {
 });
 
 
-Route::post('/crearCuentaEstudiante', [Registro::class, 'crearEstudiante'])->middleware(VerifyCsrfToken::class);
+Route::post('/crearCuentaEstudiante', [Registro::class, 'crearEstudiante']);
 Route::post('/crearCuentaDocente', [Registro::class, 'crearDocente']);
 
 
