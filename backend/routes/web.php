@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Inicio_Sesion;
 
 /*Route::get('/', function () {
     return view('welcome');
@@ -40,6 +41,11 @@ Route::get('/crear_grupos', function () {
     return view('crear_grupos');
 });
 
+
+Route::get('/home_estudiante', function () {
+    return view('main_est');
+});
+Route::post('/login', [Inicio_Sesion::class, 'login']);
 
 
 
