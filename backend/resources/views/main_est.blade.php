@@ -113,27 +113,7 @@
     </script>
 </head>
 <body>
-    <header>       
-        <div class="menu-container">
-            <div class="menu">&#9776;</div>            
-            <div id="menu-dropdown" class="dropdown">
-                <a href="#">Visualizar Planificaciones</a>
-                <a href="#">Lista de tareas Semanal</a>
-                <a href="#">Grupo-Empresas</a>
-                <a href="#">Calificaciones</a>
-            </div>
-        </div>
-        <div class="logo-container">
-            <a href="#">WEB TIS</a>
-        </div>
-        <div class="user-container">
-            <div class="user-icon">&#128100;</div>
-            <div id="user-dropdown" class="dropdown">
-                <a href="#">Perfil</a>
-                <a href="#">Cerrar sesión</a>
-            </div>
-        </div>
-    </header>
+    
     
     <div class="container">
         <h2>Bienvenido, María Lopez Fernandez</h2>

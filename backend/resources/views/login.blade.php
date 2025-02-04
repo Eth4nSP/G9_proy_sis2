@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Login Web TIS</title>
     <style>
         body {
@@ -82,8 +83,66 @@
             text-align: center;
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const csrfMeta = document.querySelector('meta[name="csrf-token"]');
+            if (!csrfMeta) {
+                console.error("CSRF token no encontrado en el meta tag.");
+                return;
+            }
+    
+            const loginBtn = document.querySelector('.login-btn');
+            
+            loginBtn.addEventListener("click", async function() {
+                const usuario = document.getElementById('usuario').value;
+                const password = document.getElementById('password').value;
+    
+                if (!usuario || !password) {
+                    alert("Por favor, completa ambos campos.");
+                    return;
+                }
+    
+                const formData = {
+                    nombre_cuenta: usuario,
+                    contrasena: password
+                };
+    
+                try {
+                    const response = await fetch("/login", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "X-CSRF-TOKEN": csrfMeta.getAttribute('content')
+                        },
+                        body: JSON.stringify(formData)
+                    });
+    
+                    const data = await response.json();
+    
+                    if (response.ok) {
+                        alert(data.mensaje);
+    
+                        // Redirigir según el rol
+                        if (data.role === "estudiante") {
+                            window.location.href = "/home_estudiante";  // Reemplazar con la ruta para estudiante
+                        } else if (data.role === "docente") {
+                            window.location.href = "/home_docente";  // Reemplazar con la ruta para docente
+                        }
+                    } else {
+                        alert(data.error || "Error en el login");
+                    }
+                } catch (error) {
+                    console.error("Error en la petición:", error);
+                    alert("Hubo un problema al procesar la solicitud.");
+                }
+            });
+        });
+    </script>
+    
 </head>
 <body>
+    
+    
     <div class="container">
         <div class="image-section">
             <img src="image.png" alt="Imagen de fondo">
