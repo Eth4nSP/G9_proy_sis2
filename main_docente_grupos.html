@@ -21,6 +21,21 @@
             padding: 10px 20px;
         }
 
+        .logo-container, .user-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .Logo{
+            color: white;
+            display: flex;
+            position: relative;
+            left: -584px;
+            top:1px;
+            text-decoration: none;
+            font-weight:550 ;
+        }
+
         .menu-container, .user-container {
             position: relative;
             display: inline-block;
@@ -140,6 +155,7 @@
             margin-top: 20px;
             color: #555;
         }
+        
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -174,7 +190,7 @@
 <body>
     <header>
         <div class="menu-container">
-            <div class="menu">&#9776; WEB TIS</div>
+            <div class="menu">&#9776;</div>
             <div id="menu-dropdown" class="dropdown">
                 <a href="#">Visualizar Planificaciones</a>
                 <a href="#">Lista de tareas Semanal</a>
@@ -182,11 +198,16 @@
                 <a href="#">Calificaciones</a>
             </div>
         </div>
+
+        <div class="logo-container">
+            <a class="Logo" href="main_doc.html">WEB GEST</a>
+        </div>
+
         <div class="user-container">
             <div class="user-icon">&#128100;</div>
             <div id="user-dropdown" class="dropdown">
                 <a href="#">Profile</a>
-                <a href="#">Cerrar sesión</a>
+                <a href="login.html">Cerrar sesión</a>
             </div>
         </div>
     </header>

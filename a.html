@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Gestión</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        header {
+            background-color: #3367d6;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            position: relative;
+        }
+        .user-container {
+            position: relative;
+            display: inline-block;
+        }
+        .user-icon {
+            font-size: 18px;
+            cursor: pointer;
+            padding: 10px;
+            position: relative;
+        }
+        .dropdown {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            display: none;
+            width: 200px;
+            z-index: 1000;
+            text-align: left;
+        }
+        .dropdown.active {
+            display: block;
+        }
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            font-size: 16px;
+        }
+        .dropdown a:last-child {
+            border-bottom: none;
+        }
+        .dropdown a:hover {
+            background-color: #f2f2f2;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            text-decoration: none;
+            color: white;
+            background-color: blue;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button.disabled {
+            background-color: grey;
+            cursor: not-allowed;
+        }
+        .profile-container {
+            display: none;
+            width: 300px;
+            margin-top: 0px;
+            text-align: left;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 110px;
+            left: 990px;
+        }
+        .profile-container input {
+            width: 95%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .editar{
+            display:inline-block;
+            width: 80px;
+            padding: 10px;
+            margin-top: 10px;
+            margin-left: 178px;
+            text-decoration: none;
+            color: white;
+            background-color: blue;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .cerrar{
+            display:inline-block;
+            width: 10%;
+            padding: 10px;
+            margin-top: 10px;
+            text-decoration: none;
+            color: white;
+            background-color: rgb(255, 0, 0);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userIcon = document.querySelector('.user-icon');
+            const userDropdown = document.getElementById('user-dropdown');
+            const profileContainer = document.getElementById('profile-container');
+            const profileLink = document.getElementById('profile-link');
+            const closeButton = document.querySelector('.cerrar');
+            userIcon.addEventListener('click', (event) => {
+                event.stopPropagation();
+                userDropdown.classList.toggle('active');
+            });
+
+            profileLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                profileContainer.style.display = 'block';
+                userDropdown.classList.remove('active');
+            });
+            closeButton.addEventListener('click', () => {
+                profileContainer.style.display = 'none';
+            });
+
+            document.addEventListener('click', () => {
+                userDropdown.classList.remove('active');
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h2>Dashboard de Gestión</h2>
+        <div class="user-container">
+            <div class="user-icon">&#128100;</div>
+            <div id="user-dropdown" class="dropdown">
+                <a href="#" id="profile-link">Profile</a>
+                <a href="login.html">Cerrar sesión</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <h2>Bienvenid@, Ing. Pedro Juliano Coca</h2>
+        <h3>Gestión 2025-02, Grupo 1</h3>
+        <div id="profile-container" class="profile-container">
+            <button class="editar">Editar</button>
+            <button class="cerrar">X</button>
+            <h3>Datos cuenta:</h3>
+            <label>Nombre Cuenta:</label>
+            <input type="text" value="Riku" readonly>
+            <label>Correo:</label>
+            <input type="email" value="querodes4@hotmail.com" readonly>
+            <label>Nombre:</label>
+            <input type="text" value="Riku" readonly>
+            <label>Apellido:</label>
+            <input type="text" value="aa" readonly>
+            <label>Segundo Apellido:</label>
+            <input type="text" value="rojas" readonly>
+            <label>Nueva Contraseña:</label>
+            <input type="password">
+            <label>Repetir Contraseña:</label>
+            <input type="password">
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h4>Resumen General</h4>
+                <p>📚 Estudiantes inscritos: <strong>35</strong></p>
+                <p>👥 Grupos de Trabajo: <strong>7</strong></p>
+                <button class="button">Lista de Estudiantes</button>
+                <button class="button disabled">Lista de grupos de empresa</button>
+            </div>
+            <div class="card">
+                <h4>Seguimiento Semanal</h4>
+                <button class="button">Visualizar Tareas</button>
+                <button class="button disabled">Realizar Seguimiento</button>
+            </div>
+            <div class="card">
+                <h4>Evaluaciones</h4>
+                <button class="button">Enviar Evaluaciones</button>
+                <button class="button disabled">Visualizar Evaluaciones</button>
+            </div>
+            <div class="card">
+                <h4>Datos del proyecto</h4>
+                <button class="button">Archivos enviados por los grupos</button>
+                <button class="button disabled">Visualización de calificaciones del proyecto</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
