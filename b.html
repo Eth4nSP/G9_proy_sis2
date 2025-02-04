@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <style>
+        /* Estilos del profile-container */
+        .profile-container {
+            display: none;
+            width: 300px;
+            text-align: left;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 110px;
+            left: 990px;
+        }
+        .profile-container input {
+            width: 95%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .editar {
+            display:inline-block;
+            width: 80px;
+            padding: 10px;
+            margin-top: 10px;
+            margin-left: 178px;
+            text-decoration: none;
+            color: white;
+            background-color: blue;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .cerrar {
+            display:inline-block;
+            width: 10%;
+            padding: 10px;
+            margin-top: 10px;
+            text-decoration: none;
+            color: white;
+            background-color: red;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const profileContainer = document.getElementById('profile-container');
+            const profileLink = document.getElementById('profile-link');
+            const closeButton = document.querySelector('.cerrar');
+
+            profileLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                profileContainer.style.display = 'block';
+            });
+            closeButton.addEventListener('click', () => {
+                profileContainer.style.display = 'none';
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="profile-container" class="profile-container">
+        <button class="editar">Editar</button>
+        <button class="cerrar">X</button>
+        <h3>Datos cuenta:</h3>
+        <label>Nombre Cuenta:</label>
+        <input type="text" value="Riku" readonly>
+        <label>Correo:</label>
+        <input type="email" value="querodes4@hotmail.com" readonly>
+        <label>Nombre:</label>
+        <input type="text" value="Riku" readonly>
+        <label>Apellido:</label>
+        <input type="text" value="aa" readonly>
+        <label>Segundo Apellido:</label>
+        <input type="text" value="rojas" readonly>
+        <label>Nueva Contraseña:</label>
+        <input type="password">
+        <label>Repetir Contraseña:</label>
+        <input type="password">
+    </div>
+</body>
+</html>
