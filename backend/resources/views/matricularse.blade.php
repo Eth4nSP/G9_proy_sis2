@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
             padding: 0;
             background-color: white;
         }
-
+        
         header {
             display: flex;
             justify-content: space-between;
@@ -21,27 +22,13 @@
             color: white;
             position: relative;
         }
-
-        .logo-container, .user-container {
-            position: relative;
-            display: inline-block;
-        }
-
-        .Logo{
-            color: white;
-            display: flex;
-            position: relative;
-            left: -590px;
-            text-decoration: none;
-            font-weight:550 ;
-        }
-
+        
         .menu {
             cursor: pointer;
             font-weight: bold;
             position: relative;
         }
-
+        
         .dropdown {
             display: none;
             position: absolute;
@@ -53,32 +40,32 @@
             border-radius: 4px;
             z-index: 100;
         }
-
+        
         .user-icon {
             position: relative;
             cursor: pointer;
         }
-
+        
         .user-icon .dropdown {
             right: 0;
             left: auto;
         }
-
+        
         .dropdown.active {
             display: block;
         }
-
+        
         .dropdown a {
             display: block;
             padding: 5px 10px;
             text-decoration: none;
             color: black;
         }
-
+        
         .dropdown a:hover {
             background-color: #f0f0f0;
         }
-
+        
         .content {
             max-width: 800px;
             margin: 20px auto;
@@ -87,43 +74,30 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
+        
         .content h1 {
             font-size: 24px;
             margin-bottom: 20px;
         }
-
-        .boton-atras{
-            background-color: rgb(255, 0, 0);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            transform: 50px,0;
-            margin:   170px  360px;
-        }
-
+        
         .content .description {
-            margin-bottom: 150px;
+            margin-bottom: 20px;
         }
-
+        
         .form {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 10px;
-            margin-bottom: 80px;
         }
-
+        
         .form input {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
             width: 200px;
         }
-
+        
         .form button {
             background-color: black;
             color: white;
@@ -133,59 +107,33 @@
             cursor: pointer;
             font-weight: bold;
         }
-
+        
         .form button:hover {
             background-color: #333;
         }
-        
+
     </style>
-
-<script>
-    function toggleMenuDropdown() {
-        const menuDropdown = document.getElementById('menu-dropdown');
-        menuDropdown.classList.toggle('active');
-    }
-
-    function toggleUserDropdown() {
-        const userDropdown = document.getElementById('user-dropdown');
-        userDropdown.classList.toggle('active');
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuIcon = document.querySelector('.menu');
-        const userIcon = document.querySelector('.user-icon');
-
-        menuIcon.addEventListener('click', toggleMenuDropdown);
-        userIcon.addEventListener('click', toggleUserDropdown);
-    });
-</script>
-
 </head>
+
 <body>
     <header>
-        <div class="menu">&#9776;</div>
+        <div class="menu">&#9776; WEB TIS</div>
         <div id="menu-dropdown" class="dropdown">
             <a href="#">Visualizar Planificaciones</a>
             <a href="#">Lista de tareas Semanal</a>
             <a href="#">Grupo-Empresas</a>
             <a href="#">Calificaciones</a>
         </div>
-
-        <div class="logo-container">
-            <a class="Logo" href="main_doc.html">WEB GEST</a>
-        </div>
-
         <div class="user-icon">&#128100;
             <div id="user-dropdown" class="dropdown">
                 <a href="#">Profile</a>
-                <a href="login.html">Cerrar sesión</a>
+                <a href="#">Cerrar sesión</a>
             </div>
         </div>
     </header>
     <div class="content">
-        <button class="boton-atras" style="position: absolute;top: 50%;" onclick="history.back()">Atrás</button>
+        <button onclick="history.back()">Atrás</button>
         <h1>MATRICULARSE CON UN DOCENTE</h1>
-        
         <div class="description">
             <strong>Blanco Coca Leticia G1</strong>
             <p>Descripción de Leticia desde la base</p>
@@ -193,9 +141,28 @@
         <form class="form">
             <label for="codigo">Código de acceso:</label>
             <input type="text" id="codigo" placeholder="CÓDIGO">
-            <button type="button">MATRICULARSE</button>
+            <a href="main_est"><button type="button">MATRICULARSE</button></a>
         </form>
     </div>
-   
+    <script>
+        function toggleMenuDropdown() {
+            const menuDropdown = document.getElementById('menu-dropdown');
+            menuDropdown.classList.toggle('active');
+        }
+
+        function toggleUserDropdown() {
+            const userDropdown = document.getElementById('user-dropdown');
+            userDropdown.classList.toggle('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuIcon = document.querySelector('.menu');
+            const userIcon = document.querySelector('.user-icon');
+
+            menuIcon.addEventListener('click', toggleMenuDropdown);
+            userIcon.addEventListener('click', toggleUserDropdown);
+        });
+    </script>
 </body>
+
 </html>
