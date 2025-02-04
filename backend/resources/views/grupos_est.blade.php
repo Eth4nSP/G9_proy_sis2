@@ -34,6 +34,20 @@
             position: relative;
         }
 
+        .logo-container, .user-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .Logo{
+            color: white;
+            display: flex;
+            position: relative;
+            left: -590px;
+            text-decoration: none;
+            font-weight:550 ;
+        }
+
         .dropdown {
             position: absolute;
             top: 50px;
@@ -152,17 +166,22 @@
 </head>
 <body>
     <header>
-        <div class="menu">&#9776; WEB TIS</div>
+        <div class="menu">&#9776;</div>
         <div id="menu-dropdown" class="dropdown">
             <a href="#">Visualizar Planificaciones</a>
             <a href="#">Lista de tareas Semanal</a>
             <a href="#">Grupo-Empresas</a>
             <a href="#">Calificaciones</a>
         </div>
+
+        <div class="logo-container">
+            <a class="Logo" href="main_doc.html">WEB GEST</a>
+        </div>
+
         <div class="user-icon">&#128100;
             <div id="user-dropdown" class="dropdown">
                 <a href="#">Profile</a>
-                <a href="#">Cerrar sesión</a>
+                <a href="login.html">Cerrar sesión</a>
             </div>
         </div>
     </header>
@@ -170,7 +189,7 @@
     <div class="container">
         <h1>Lista De Grupos</h1>
 	<ol>Lista grupos</ol>
-        <a href="/listaGrupos" class="button">Inscríbete a un grupo</a>
+        <a href="#" class="button">Inscríbete a un grupo</a>
 
         <div class="groups">
             <h2>Grupos pasados</h2>

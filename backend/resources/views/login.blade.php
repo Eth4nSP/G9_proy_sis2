@@ -87,7 +87,7 @@
     <div class="container">
         <div class="image-section">
             <img src="image.png" alt="Imagen de fondo">
-            <div class="text">WEB TIS</div>
+            <div class="text"></div>
         </div>
         <div class="form-section">
             <h2>BIENVENIDO</h2>
@@ -95,13 +95,13 @@
             <input type="text" id="usuario" name="usuario">
             <label for="password">Contraseña:</label>
             <input type="password" id="password" name="password">
-            <a href="docente_grupos"><button class="login-btn">Login</button></a>
+            <button class="login-btn">Login</button>
             <div class="links">
                 <label><input type="checkbox"> Recordar contraseña</label>
                 <a href="#">¿Olvidaste tu contraseña?</a>
             </div>
             <p class="signup">No tienes cuenta?</p>
-            <p class="signup"><a href="registro_est">Crear Cuenta</a></p>
+            <p class="signup"><a href="registro_est.html">Crear Cuenta</a></p>
         </div>
     </div>
 </body>
