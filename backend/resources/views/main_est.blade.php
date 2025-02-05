@@ -20,30 +20,28 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
-            position: relative;
         }
 
-        .menu-container, .user-container {
-            position: relative;
-            display: inline-block;
+        .logo-container a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
         }
 
         .menu, .user-icon {
             font-size: 18px;
             cursor: pointer;
             padding: 10px;
-            position: relative;
         }
 
         .dropdown {
             position: absolute;
-            top: 40px;
             background-color: white;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             display: none;
             width: 200px;
-            z-index: 1000;
             text-align: left;
         }
 
@@ -57,30 +55,11 @@
             text-decoration: none;
             color: #333;
             border-bottom: 1px solid #eee;
-            font-size: 16px;
-        }
-
-        .dropdown a:last-child {
-            border-bottom: none;
-        }
-
-        .dropdown a:hover {
-            background-color: #f2f2f2;
-        }
-
-        #menu-dropdown {
-            left: 0;
-        }
-
-        #user-dropdown {
-            right: 0;
         }
 
         .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 80vh;
+            text-align: center;
+            padding: 20px;
         }
 
         .card {
@@ -88,9 +67,8 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin: 10px;
-            width: 300px;
-            text-align: center;
+            margin: 20px auto;
+            width: 40%;
         }
 
         .card button {
@@ -100,13 +78,9 @@
             padding: 10px 15px;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 14px;
             margin: 5px;
         }
-
-        .card button:hover {
-            background-color: #002080;
-        }
+        
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -136,43 +110,51 @@
                 userDropdown.classList.remove('active');
             });
         });
+
+        document.addEventListener('DOMContentLoaded', async () => {
+        const estudianteId = 1; // ID del estudiante (puede venir de sesión o de otro lado)
+        const apiUrl = `http://127.0.0.1:8000/estudiante/obtenerDatos`; // Cambia según tu API
+
+        try {
+            const response = await fetch(apiUrl);
+            if (!response.ok) throw new Error('No se pudo obtener los datos');
+
+            const data = await response.json();
+            //localStorage.setItem('id_grupo', data.id_grupo);
+            // Insertar datos en el HTML
+            document.getElementById('nombre-estudiante').innerText = `Bienvenido, ${data.nombre} ${data.apellido_paterno}`;
+            document.getElementById('info-estudiante').innerText = `Gestión: ${data.gestion}, Grupo ${data.grupo}`;
+        } catch (error) {
+            console.error('Error:', error);
+            document.getElementById('nombre-estudiante').innerText = 'Error al cargar datos';
+        }
+    });
     </script>
 </head>
 <body>
-    <header>
-        <div class="menu-container">
-            <div class="menu">&#9776; WEB TIS</div>
-            <div id="menu-dropdown" class="dropdown">
-                <a href="#">Visualizar Planificaciones</a>
-                <a href="#">Lista de tareas Semanal</a>
-                <a href="#">Grupo-Empresas</a>
-                <a href="#">Calificaciones</a>
-            </div>
-        </div>
-        <div class="user-container">
-            <div class="user-icon">&#128100;</div>
-            <div id="user-dropdown" class="dropdown">
-                <a href="#">Profile</a>
-                <a href="#">Cerrar sesión</a>
-            </div>
-        </div>
-    </header>
+    
     
     <div class="container">
+        <h2 id="nombre-estudiante">Bienvenido, Estudiante</h2>
+        <p id="info-estudiante">Gestión: Desconocida, Grupo N/A</p>
+
         <div class="card">
-            <h3>Grupo Empresa</h3>
+            <h3>Equipo de proyecto</h3>
             <p>Fecha límite de entrega: 2024-12-12</p>
-            <button>Registrar Grupo o Empresa</button>
+            <a href="registrar_equipo"><button>Registrar Equipo</button></a>
+            <a href="actualizar_equipo"><button>Actualizar Equipo</button></a>
         </div>
+
         <div class="card">
             <h3>Evaluación</h3>
             <button>Realizar Evaluación</button>
             <button disabled>Visualizar Evaluaciones</button>
         </div>
+
         <div class="card">
-            <h3>Lista y Nota</h3>
+            <h3>Proyecto y Nota</h3>
             <button>Lista de Estudiantes</button>
-            <button>Lista de Grupo de Empresas</button>
+            <a href="subirProyecto"><button>Subir Proyecto</button></a>
         </div>
     </div>
 </body>

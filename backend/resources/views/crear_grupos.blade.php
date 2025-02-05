@@ -23,6 +23,21 @@
             padding: 15px 20px;
             position: relative;
         }
+        .logo-container, .user-container {
+            position: relative;
+            display: inline-block;
+            margin: left 50px;
+        }
+
+        .Logo{   
+            color: white;
+            display: flex;
+            position: relative;
+            left: -577px;
+            top: 1px;
+            text-decoration: none;
+            font-weight:550 ;
+        }
 
         .menu-container, .user-container {
             position: relative;
@@ -120,6 +135,24 @@
         .submit-btn:hover {
             background-color: #2c3e97;
         }
+
+        .cancel-btn {
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .cancel-btn:hover {
+            background-color: #ff0000;
+        }
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -154,7 +187,7 @@
 <body>
     <header>
         <div class="menu-container">
-            <div class="menu">&#9776; WEB TIS</div>
+            <div class="menu">&#9776; </div>
             <div id="menu-dropdown" class="dropdown">
                 <a href="#">Visualizar Planificaciones</a>
                 <a href="#">Lista de tareas Semanal</a>
@@ -162,11 +195,16 @@
                 <a href="#">Calificaciones</a>
             </div>
         </div>
+
+        <div class="logo-container">
+            <a class="Logo" href="main_doc.html">WEB GEST</a>
+        </div>
+        
         <div class="user-container">
             <div class="user-icon">&#128100;</div>
             <div id="user-dropdown" class="dropdown">
                 <a href="#">Profile</a>
-                <a href="#">Cerrar sesión</a>
+                <a href="login.html">Cerrar sesión</a>
             </div>
         </div>
     </header>
@@ -193,6 +231,7 @@
         <input type="date">
         <textarea placeholder="Comentarios"></textarea>
         <button class="submit-btn">Crear Grupo</button>
+        <button class="cancel-btn" onclick="history.back()">Cancelar</button>
     </div>
 </body>
 </html>

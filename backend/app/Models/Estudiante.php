@@ -21,11 +21,11 @@ class Estudiante extends Model
 
     public function equipos()
     {
-        return $this->belongsToMany(Equipo::class, 'estudiantes_equipo_grupos', 'id_estudiante', 'id_equipo');
+        return $this->belongsToMany(Equipo::class, 'estudiante_equipo', 'id_estudiante', 'id_equipo');
     }
 
     public function grupos()
     {
-        return $this->belongsToMany(Grupo::class, 'estudiantes_equipo_grupos', 'id_estudiante', 'id_grupo');
+        return $this->belongsToMany(Grupo::class, 'estudiantes_grupos', 'id_estudiante', 'id_grupo');
     }
 }
