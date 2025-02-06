@@ -19,11 +19,13 @@ class inscribir extends Controller
         $request->validate([
             'codigo'   => 'required',
             'id_grupo' => 'required',
+            'id' => 'required'
         ]);
         
         // Obtener el código de acceso y el ID del grupo desde la solicitud
         $codigo = $request->codigo;
         $id_grupo = $request->id_grupo;
+        $id = $request->id;
     
         // Realizar la consulta para obtener el grupo con el código y el ID
         $grupo = DB::table('grupo') // Asegúrate de que el nombre de la tabla sea correcto
@@ -36,7 +38,7 @@ class inscribir extends Controller
             // Verificar si el estudiante ya está inscrito en el grupo
             // Registrar la inscripción del estudiante
             $estudiantesGrupo = new estudiantegrupo();
-            $estudiantesGrupo->id_Estudiante = $idEstudiante;
+            $estudiantesGrupo->id_Estudiante = $id;
             $estudiantesGrupo->id_Grupo = $request->id_grupo;
             $estudiantesGrupo->save();
     

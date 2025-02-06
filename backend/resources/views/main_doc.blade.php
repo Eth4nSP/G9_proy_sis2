@@ -193,18 +193,18 @@
                 <h4>Resumen General</h4>
                 <p>📚 Estudiantes inscritos: <strong>35</strong></p>
                 <p>👥 Grupos de Trabajo: <strong>7</strong></p>
-                <button class="button">Lista de Estudiantes</button>
-                <button class="button disabled">Lista de equipos</button>
+                <a href="lista_Estudiante"><button class="button">Lista de Estudiantes</button></a>
+                <a href="lista_equipos"><button class="button">Lista de equipos</button></a>
             </div>
             <div class="card">
                 <h4>Evaluaciones</h4>
-                <button class="button">Enviar Evaluaciones</button>
+                <button class="button disabled">Enviar Evaluaciones</button>
             </div>
             <div class="card">
                 <h4>Datos del proyecto</h4>
                 <!-- Enlace a la vista de selección de equipo -->
-                <a href="seleccionarEquipo1"><button class="button">Archivos enviados por los grupos</button></a>
-                <button class="button disabled">Calificar</button>
+                <a href="seleccionarEquipo1"><button class="button">Calificar Equipos</button></a>
+                <a href="verCalificacion"><button class="button">Ver calificacion de equipos</button></a>
             </div>
         </div>
     </div>

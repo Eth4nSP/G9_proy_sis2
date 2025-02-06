@@ -95,7 +95,7 @@
     <script>
         // Obtener el ID del grupo desde la variable de Blade
         const idGrupo = "{{ $grupo->id_grupo }}";  // Este valor se pasa desde Blade
-
+        const id = localStorage.getItem('id');
         // Función para enviar el código de acceso
         document.getElementById('matricular-form').addEventListener('submit', function(event) {
             event.preventDefault(); // Evitar el comportamiento por defecto del formulario
@@ -113,7 +113,7 @@
                     'Content-Type': 'application/json',
                     'X-CSRF-TOKEN': '{{ csrf_token() }}' // Token CSRF de Laravel
                 },
-                body: JSON.stringify({ codigo: codigo, id_grupo: idGrupo })
+                body: JSON.stringify({ codigo: codigo, id_grupo: idGrupo, id: id })
             })
             .then(response => response.json())
             .then(data => {

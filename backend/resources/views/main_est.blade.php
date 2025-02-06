@@ -147,13 +147,13 @@
 
         <div class="card">
             <h3>Evaluación</h3>
-            <button>Realizar Evaluación</button>
-            <button disabled>Visualizar Evaluaciones</button>
+            <button disabled style="background-color: gray">Realizar Evaluación</button>
+            <button disabled style="background-color: gray">Visualizar Evaluaciones</button>
         </div>
 
         <div class="card">
             <h3>Proyecto y Nota</h3>
-            <button>Lista de Estudiantes</button>
+            <button disabled style="background-color: gray">Lista de Estudiantes</button>
             <a href="subirProyecto"><button>Subir Proyecto</button></a>
         </div>
     </div>

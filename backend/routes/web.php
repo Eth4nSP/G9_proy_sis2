@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Calificar;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Inicio_Sesion;
 use App\Http\Controllers\Estudiante;
@@ -7,6 +8,8 @@ use App\Http\Controllers\CrearEquipo;
 use App\Http\Controllers\inscribir;
 use App\Http\Controllers\ListaGrupos;
 use App\Http\Controllers\ProyectoController;
+use App\Http\Controllers\EquipoController;
+use App\Http\Controllers\Registro;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +23,10 @@ use App\Http\Controllers\ProyectoController;
 //Redirecciones
 Route::get('/', function () {
     return view('login');
+});
+
+Route::get('/registro_est', function () {
+    return view('registro_est');
 });
 
 Route::get('/home_estudiante', function () {
@@ -42,6 +49,10 @@ Route::get('/listaGrupos', function () {
     return view('listaGrupos');
 });
 
+Route::get('/verCalificacion', function () {
+    return view('verCalificacion');
+});
+
 // web.php
 // web.php
 Route::get('/matricularse2/{id}', [ListaGrupos::class, 'show'])->name('matricularse2');
@@ -55,6 +66,13 @@ Route::get('/subirProyecto', function () {
     return view('subirProyecto');
 });
 
+Route::get('/lista_Estudiante', function () {
+    return view('lista_Estudiante');
+});
+
+Route::get('/lista_equipos', function () {
+    return view('lista_equipos');
+});
 
 Route::post('/proyecto/upload', [ProyectoController::class, 'subirProyecto'])->name('subirProyecto');
 
@@ -90,3 +108,18 @@ Route::get('ver-equipos', [ProyectoController::class, 'verEquipos'])->name('ver.
 Route::get('ver-archivos/{nombreEquipo}', [ProyectoController::class, 'verArchivos'])->name('ver.archivos');
 Route::get('descargar-archivo/{archivo}', [ProyectoController::class, 'descargarArchivo'])->name('descargar.archivo');
 Route::get('descargar-archivos/{nombreEquipo}', [ProyectoController::class, 'descargarArchivosDeEquipo'])->name('descargar.archivos');
+
+
+Route::post('/calificar-equipo', [Calificar::class, 'calificarEquipo']);
+
+
+Route::get('/verEquiposCalificados', [ProyectoController::class, 'verEquiposCalificados'])->name('descargar.archivos');
+Route::get('/obtener-nota/{id_equipo}', [ProyectoController::class, 'obtenerNota']);
+
+Route::get('/listaEstudiante', [EquipoController::class, 'listaEstudiante']);
+
+Route::get('/listaEquipo', [EquipoController::class, 'listaEquipos']);
+
+
+
+Route::post('/crear-estudiante', [Registro::class, 'crearEstudiante']);

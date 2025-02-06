@@ -125,6 +125,7 @@
                         // Guardar en localStorage
                         localStorage.setItem('id_grupo', data.id_grupo);
                         localStorage.setItem('id_equipo', data.id_equipo);
+                        localStorage.setItem('id', data.id);
                         const idGrupoGuardado = localStorage.getItem('id_grupo');
                         // Redirigir según el rol
                         if (data.role === "estudiante") {
@@ -170,7 +171,7 @@
                 <a href="#">¿Olvidaste tu contraseña?</a>
             </div>
             <p class="signup">No tienes cuenta?</p>
-            <p class="signup"><a href="registro_est.html">Crear Cuenta</a></p>
+            <p class="signup"><a href="registro_est">Crear Cuenta</a></p>
         </div>
     </div>
 </body>

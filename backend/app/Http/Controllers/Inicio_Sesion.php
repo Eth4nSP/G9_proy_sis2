@@ -44,7 +44,8 @@ class Inicio_Sesion extends Controller
                     'usuario' => session('estudiante'), // Esto accede a los datos almacenados en la sesión
                     'role' => 'estudiante',
                     'id_grupo' => $idGrupo ?? 0, // También lo pasamos directamente en la respuesta
-                    'id_equipo' => $idEquipo ?? 0
+                    'id_equipo' => $idEquipo ?? 0,
+                    'id' => $userE->id_estudiante,
                 ]);
             } else {
                 return response()->json(['error' => 'Credenciales incorrectas E'], 401);

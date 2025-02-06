@@ -45,7 +45,7 @@
 </head>
 <body>
 
-    <button class="btn btn-back">ATRÁS</button>
+    <button class="btn btn-back" onclick="history.back()">ATRÁS</button>
 
     <div class="container">
         <h2>REGISTRAR EQUIPO</h2>

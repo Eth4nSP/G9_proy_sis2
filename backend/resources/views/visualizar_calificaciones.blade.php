@@ -177,7 +177,7 @@
        </div>
    </header>
    <div class="container">
-    <button class="btn btn-danger">ATRÁS</button>
+    <button class="btn btn-danger"onclick="history.back()">ATRÁS</button>
     <h2>VISUALIZACIÓN DE LAS CALIFICACIONES DEL PROYECTO</h2>
     <table>
         <tr>

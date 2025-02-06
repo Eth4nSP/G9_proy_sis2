@@ -188,7 +188,7 @@
             </div>
         </header>
         <div class="container">
-            <button class="btn btn-back">ATRÁS</button>
+            <button class="btn btn-back "onclick="history.back()">ATRÁS</button>
             <h2>Evaluación</h2>
             <h3>Criterios</h3>
             <input type="text" class="input-field" placeholder="Criterio">

@@ -47,11 +47,13 @@
             margin-top: 20px;
             color: green;
         }
+        
     </style>
 </head>
 <body>
 
     <div class="container">
+        <button style="background:red" class="btn btn-back" onclick="history.back()">ATRÁS</button>
         <h1>Subir Proyecto</h1>
 
         <!-- Formulario para enviar los datos del proyecto -->

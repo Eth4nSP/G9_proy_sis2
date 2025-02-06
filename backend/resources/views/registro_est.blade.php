@@ -74,25 +74,78 @@
 </head>
 <body>
     <div>
-    <a href="/"><button type="cancel" class="btn2">X</button>  </a>
+        <a href="/"><button type="cancel" class="btn2">X</button>  </a>
     </div>
     <div class="container">
         <h2>REGISTRO ESTUDIANTE</h2>
-        <form>
-            <input type="text" placeholder="Nombres" required>
+        <form id="registroForm">
+            <input type="text" id="nombreEstudiante" placeholder="Nombres" required>
             <div class="input-group">
-                <input type="text" placeholder="Apellido Paterno" required>
-                <input type="text" placeholder="Apellido Materno" required>
+                <input type="text" id="primerApellido" placeholder="Apellido Paterno" required>
+                <input type="text" id="segundoApellido" placeholder="Apellido Materno" required>
             </div>
-            <input type="email" placeholder="Correo Electrónico" required>
-            <input type="text" placeholder="Nombre de la Cuenta" required>
-            <input type="password" placeholder="Contraseña" required>
-            <input type="password" placeholder="Repetir Contraseña" required>
+            <input type="email" id="email" placeholder="Correo Electrónico" required>
+            <input type="text" id="nombreCuenta" placeholder="Nombre de la Cuenta" required>
+            <input type="password" id="contrasena" placeholder="Contraseña" required>
+            <input type="password" id="contrasenaRepetida" placeholder="Repetir Contraseña" required>
             <button type="submit" class="btn">REGISTRARSE</button>
         </form>
         <div class="footer">
-            ¿Ya tienes cuenta? <a href="inscribirGrupo">Iniciar Sesión</a>
+            ¿Ya tienes cuenta? <a href="/">Iniciar Sesión</a>
         </div>
     </div>
+
+    <script>
+        document.getElementById('registroForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+
+            // Obtener los valores de los campos del formulario
+            const nombreEstudiante = document.getElementById('nombreEstudiante').value;
+            const primerApellido = document.getElementById('primerApellido').value;
+            const segundoApellido = document.getElementById('segundoApellido').value;
+            const email = document.getElementById('email').value;
+            const nombreCuenta = document.getElementById('nombreCuenta').value;
+            const contrasena = document.getElementById('contrasena').value;
+            const contrasenaRepetida = document.getElementById('contrasenaRepetida').value;
+
+            // Validar que las contraseñas coincidan (sin la necesidad de la validación adicional)
+            if (contrasena !== contrasenaRepetida) {
+                alert('Las contraseñas no coinciden.');
+                return;
+            }
+
+            // Crear los datos a enviar
+            const data = {
+                nombreEstudiante,
+                primerApellido,
+                segundoApellido,
+                email,
+                nombreCuenta,
+                contrasena
+            };
+
+            // Realizar la solicitud POST
+            fetch('/crear-estudiante', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    alert(data.message); // Mensaje de éxito
+                    window.location.href = '/'; // Redirigir a la página de inicio de sesión
+                } else if (data.error) {
+                    alert(data.error); // Mostrar mensaje de error
+                }
+            })
+            .catch(error => {
+                alert('Error al registrar el estudiante. Intenta nuevamente.');
+                console.error('Error:', error);
+            });
+        });
+    </script>
 </body>
 </html>

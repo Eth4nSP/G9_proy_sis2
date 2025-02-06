@@ -178,7 +178,7 @@
     </div>
 </header>
 <div class="container">
-    <button class="btn btn-danger">ATRÁS</button>
+    <button class="btn btn-danger" onclick="history.back()">ATRÁS</button>
     <h2>PUBLICAR EQUIPO</h2>
     <label>Nombre Largo:</label>
     <input type="text" class="input-field" placeholder="Nombre largo">
